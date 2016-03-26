@@ -1,29 +1,51 @@
 package sample;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+public class Main {
 
-public class Main extends Application {
-    private Button button;
-
-    @Override public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Hello World");
-
-        button = new Button();
-        button.setText("Click me");
-
-        StackPane layout = new StackPane();
-        layout.getChildren().add(button);
-
-        Scene scene = new Scene(layout, 800, 600);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
     public static void main(String[] args) {
-        launch(args);
+
+        System.out.println("********Start***********");
+
+        /**
+         * String
+         */
+        System.out.println("--------1---------");
+        String name = "Test";
+        System.out.println(name);
+        System.out.println(name.substring(1,3));
+        System.out.println(name.substring(1,3).toLowerCase());
+
+        /**
+         * int, Integer
+         */
+        System.out.println("--------2---------");
+        int age = 29;
+        System.out.println(age);
+        Number ageObj = 29;
+        System.out.println(ageObj);
+        System.out.println(ageObj.equals(age));//Correct equals primitive and objective variables
+        System.out.println(ageObj.floatValue());// test some other methods
+
+
+        /**
+         * double, Double
+         */
+        System.out.println("--------3---------");
+
+
+        /**
+         * float, Float
+         */
+        System.out.println("--------4---------");
+
+        /**
+         * boolean, Boolean
+         */
+        System.out.println("--------4---------");
+
+
+
+        System.out.println("***********Finish***********");
     }
 
 }
