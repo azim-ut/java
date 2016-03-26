@@ -31,17 +31,26 @@ public class Main {
          * double, Double
          */
         System.out.println("--------3---------");
-
+        double money = 0.0;
+        Double moneyObj = 0.0;
 
         /**
          * float, Float
          */
         System.out.println("--------4---------");
+        float rate = 12.4f;
+        Float rateObj = 15f;
+        System.out.println(rateObj);
+
+        /**
+         * long, Long
+         */
+        System.out.println("--------5---------");
 
         /**
          * boolean, Boolean
          */
-        System.out.println("--------4---------");
+        System.out.println("--------6---------");
 
 
 
