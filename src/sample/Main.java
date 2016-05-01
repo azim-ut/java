@@ -1,29 +1,28 @@
 package sample;
 
-import sample.test.VariableTypesTest;
+import com.google.gson.Gson;
+import sample.bins.Advert;
 import sample.utils.FileUtils;
 
 public class Main {
 
+    public static Gson gson = new Gson();
+
     public static void main(String[] args) {
+        Advert adv = new Advert();
+        adv.setTitle("Need worker");
+        adv.setText("Work description");
 
-        String fileData = FileUtils.readFileToString("data/config_slip_express_log.js");
-        System.out.println("My files data: "+fileData);
+        String fileName = "data/test.txt";
+        String data = gson.toJson(adv);
+        FileUtils.write(fileName, data);
 
-
-        System.out.println("********Start***********");
-
-        VariableTypesTest test = new VariableTypesTest();
-        test.outStringMethods();
-        test.outIntegerMethods();
-        test.outDoubleMethods();
-        test.outFloatMethods();
-        test.outLongMethods();
-        test.outBooleanMethods();
+        //JSON
+        String fileData = FileUtils.readFileToString(fileName);
+        Advert stored = gson.fromJson(fileData, Advert.class);
 
 
-
-        System.out.println("***********Finish***********");
+        System.out.println(fileData);
     }
 
 }
