@@ -1,28 +1,30 @@
 package sample;
 
 import com.google.gson.Gson;
-import sample.bins.Advert;
-import sample.utils.FileUtils;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Main {
+public class Main extends Application {
 
     public static Gson gson = new Gson();
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+        Scene scene = new Scene(root, 800, 600);
+
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
-        Advert adv = new Advert();
-        adv.setTitle("Need worker");
-        adv.setText("Work description");
+        launch(args);
 
-        String fileName = "data/test.txt";
-        String data = gson.toJson(adv);
-        FileUtils.write(fileName, data);
-
-        //JSON
-        String fileData = FileUtils.readFileToString(fileName);
-        Advert stored = gson.fromJson(fileData, Advert.class);
-
-
-        System.out.println(fileData);
     }
 
 }

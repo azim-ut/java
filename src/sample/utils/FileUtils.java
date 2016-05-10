@@ -14,11 +14,26 @@ import java.nio.file.Paths;
  */
 public class FileUtils {
 
+
+    public static String getGreetingsStr(){
+        return "----------------- Lets do something!";
+    }
+
+    public static String getFinishStr(){
+        return "----------------- We have done!";
+    }
+
+    public static boolean isFileExists(String filePath){
+        File file = new File(filePath);
+        return file.exists();
+    }
+
+
     public static String readFileToString(String fileName){
 
         File file = new File(fileName);
         StringBuilder stringBuilder = new StringBuilder();
-        System.out.println(file.exists());
+
         try(BufferedReader reader = Files.newBufferedReader(Paths.get(file.getPath()), StandardCharsets.UTF_8)){
             String line;
             while((line = reader.readLine()) != null){
