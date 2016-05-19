@@ -1,43 +1,41 @@
-package sample.utils;
+package utils;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.PrintWriter;
 
 /**
  * Created by Aleksandr Kostyukov on 4/7/2016.
  */
 public class FileUtils {
 
-
-    public static String getGreetingsStr(){
+    public static String getGreetingsStr() {
         return "----------------- Lets do something!";
     }
 
-    public static String getFinishStr(){
+    public static String getFinishStr() {
         return "----------------- We have done!";
     }
 
-    public static boolean isFileExists(String filePath){
+    public static boolean isFileExists(String filePath) {
         File file = new File(filePath);
         return file.exists();
     }
 
-
-    public static String readFileToString(String fileName){
+    public static String readFileToString(String fileName) {
 
         File file = new File(fileName);
         StringBuilder stringBuilder = new StringBuilder();
 
-        try(BufferedReader reader = Files.newBufferedReader(Paths.get(file.getPath()), StandardCharsets.UTF_8)){
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file.getPath()));
             String line;
-            while((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 stringBuilder.append(line);
             }
-        }catch(IOException e){
+        } catch (IOException e) {
 
         }
         return stringBuilder.toString();
@@ -54,7 +52,7 @@ public class FileUtils {
 
         try {
             //проверяем, что если файл не существует то создаем его
-            if(!file.exists()){
+            if (!file.exists()) {
                 file.createNewFile();
             }
 
@@ -69,10 +67,9 @@ public class FileUtils {
                 //Иначе файл не запишется
                 out.close();
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
 
 }

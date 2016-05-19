@@ -1,4 +1,4 @@
-package sample.bins;
+package bins;
 
 /**
  * Created by Aleksandr Kostyukov on 5/1/2016.

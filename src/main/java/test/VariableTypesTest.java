@@ -1,4 +1,4 @@
-package sample.test;
+package test;
 
 /**
  * Created by Aleksandr Kostyukov on 4/7/2016.
