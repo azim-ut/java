@@ -1,0 +1,13 @@
+.form {
+    -fx-background-color: #fff;
+}
+
+#FormTextField{
+    width: 10%;
+}
+
+.blueBtn{
+    -fx-background-color: #3d8bcd;
+    -fx-padding: 5px 10px;
+    -fx-text-fill: #fff;
+}

@@ -4,7 +4,44 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<GridPane fx:controller="Main"
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TextArea?>
+<GridPane fx:controller="controllers.FinanceRecordFormController"
+          styleClass="form"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <stylesheets>
+        <URL value="@css/app_form.css" />
+    </stylesheets>
+
+
+    <Label text="Amount:"
+           GridPane.columnIndex="1"
+           GridPane.rowIndex="1"/>
+
+    <TextField
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="1"/>
+
+    <TextArea
+            id="FormTextField"
+            GridPane.columnIndex="1"
+            GridPane.columnSpan="2"
+            GridPane.rowIndex="2"
+            prefRowCount="5"
+            prefHeight="50.5"/>
+
+
+    <Button text="Save"
+            styleClass="blueBtn"
+            GridPane.columnIndex="1"
+            GridPane.columnSpan="2"
+            GridPane.rowIndex="3"
+            GridPane.halignment="CENTER"
+            onAction="#handleAddFinanceRow"/>
+
 
 </GridPane>
