@@ -17,15 +17,6 @@
         <URL value="@css/app_form.css" />
     </stylesheets>
 
-
-    <Label text="Amount:"
-           GridPane.columnIndex="1"
-           GridPane.rowIndex="1"/>
-
-    <TextField
-            GridPane.columnIndex="2"
-            GridPane.rowIndex="1"/>
-
     <TextArea
             id="FormTextField"
             GridPane.columnIndex="1"
@@ -35,7 +26,7 @@
             prefHeight="50.5"/>
 
 
-    <Button text="Save"
+    <Button text="Parse"
             styleClass="blueBtn"
             GridPane.columnIndex="1"
             GridPane.columnSpan="2"
