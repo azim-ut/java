@@ -1,7 +1,14 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -19,7 +26,7 @@ public class FinanceRecordFormController{
         String[] list = result.split(" ");
 
         StringBuilder stringBuilder = new StringBuilder();
-        Map<String, Number> wordsMap = new HashMap<String, Number>();
+        final Map<String, Number> wordsMap = new HashMap<String, Number>();
 
         for (String word : list) {
             if(!wordsMap.containsKey(word)){
@@ -29,15 +36,26 @@ public class FinanceRecordFormController{
             }
         }
 
-        //iterate words map
-        for (Map.Entry<String, Number> entry : wordsMap.entrySet()) {
-            String key = entry.getKey();
-            Number value = entry.getValue();
-            System.out.println(key + "-" + value);
+        //sort words map by value  - google request - java map comparator
+        LinkedHashMap<String, Number> sorted = new LinkedHashMap<String, Number>();
+        List<String> words = Arrays.asList(wordsMap.keySet().toArray(new String[wordsMap.size()]));
+        words.sort(new Comparator<String>() {
+            public int compare(String o1, String o2) {
+                return wordsMap.get(o2).toString().compareTo(wordsMap.get(o1).toString());
+            }
+        });
+
+        for (String word : words) {
+            sorted.put(word, wordsMap.get(word));
         }
 
-        //sort words map by value  - google request - java map comparator
-
+        //iterate words map
+        for (Map.Entry<String, Number> entry : sorted.entrySet()) {
+            String key = entry.getKey();
+            Number value = entry.getValue();
+            stringBuilder.append(key + "-" + value);
+            stringBuilder.append("\r\n");
+        }
 
         textResult.setText(stringBuilder.toString());
     }
